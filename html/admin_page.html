@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Project Biological Databases 2017</title>
+
+    <!-- Custom CSS -->
+    <link href="/simple-sidebar.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="toggled">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://127.0.0.1:8081/">Home</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8081/queryb">Query Borrelia Database</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8081/queryl">Query Lysin Database</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8081/about">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Admin Page</h1>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <h3>Add individual entries to the tables</h3>
+                        <p>        </p>
+                        <h4>Borrelia table</h4>
+                        <form action="http://127.0.0.1:8081/admin_page/add_borrelia" method="get">
+                              <table>
+                                <tr>
+                                  <td align="left">Borrelia id:</td>
+                                  <td align="left"> <input type="text" name="borreliaid" required></td>
+                                </tr><tr>
+                                  <td align="left">Borrelia name:</td>
+                                  <td align="left"><input type="text" name="borrelianame" required></td>
+                                </tr>
+                              </table>
+                            <br>
+                            <input type="submit" value="Add" class="btn btn-default">
+                        </form>
+                        <br></br>
+                        <h4>Lysins table</h4>
+                        <p>         </p>
+                        <form action="http://127.0.0.1:8081/admin_page/add_lysin" method="get">
+                              <table>
+                                <tr>
+                                  <td align="left">Borrelia id:</td>
+                                  <td align="left"> <input type="text" name="borreliaid" required></td>
+                                </tr><tr>
+                                  <td align="left">Lysin uniprot id:</td>
+                                  <td align="left"><input type="text" name="lysinuniprotid" required></td>
+                                </tr><tr>
+                                  <td align="left">Lysin name:</td>
+                                  <td align="left"><input type="text" name="lysinname" required></td>
+                                </tr><tr>
+                                  <td align="left">Conserved domains: </td>
+                                  <td align="left"><input type="text" name="conserveddomains"></td>
+                                </tr><tr>
+                                  <td align="left">Properties: </td>
+                                  <td align="left"><input type="text" name="properties"></td>
+                                </tr>
+                              </table>
+                            <br>
+                            <input type="submit" value="Add" class="btn btn-default">
+                        </form>
+                        <br></br>
+                        <h3>Remove entries to the tables</h3>
+                        <h4>Borrelia table</h4>
+                        <p>          </p>
+                        <p>
+                            Remove all entries by Borellia ID: <br>
+                            <form action="/admin_page/deleteborreliabyid" method="get">
+                                Borrelia ID: <input type="text" name="borreliaid" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                            <br>
+                            Remove all entries by Borellia Name: <br>
+                            <form action="/admin_page/deleteborreliabyname" method="get">
+                                Borrelia Name: <input type="text" name="borrelianame" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                        </p>
+                        <h4>Lysins table</h4>
+                        <p>           </p>
+                        <p>
+                            Remove all entries by Borellia ID: <br>
+                            <form action="/admin_page/deletelysinbyid" method="get">
+                                Borrelia ID: <input type="text" name="borreliaid" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                            <br>
+                            Remove all entries by Lysin Uniprot ID: <br>
+                            <form action="/admin_page/deletelysinbyuniprotid" method="get">
+                                Lysin Uniprot ID: <input type="text" name="lysinuniprotid" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                            <br>
+                            Remove all entries by Lysin Name: <br>
+                            <form action="/admin_page/deletelysinbyname" method="get">
+                                Lysin Name: <input type="text" name="lysinname" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                            <br>
+                            Remove all entries by Lysin conserved domain(s): <br>
+                            <form action="/admin_page/deletelysinbyconserveddomains" method="get">
+                                Lsyin Conserved Domain(s): <input type="text" name="conserveddomains" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                            <br>
+                            Remove all entries by Lysin properties: <br>
+                            <form action="/admin_page/deletelysinbyproperties" method="get">
+                                Lysin Properties: <input type="text" name="properties" required><input type="submit" value="Delete" class="btn btn-default">
+                            </form>
+                            <br>
+                        </p>
+                        <h3>Reset entire table</h3>
+                        <h4>Both Borrelia and Lysins table</h4>
+                        <a href="/admin_page/reset_borrelia_table" class="btn btn-default">Reset</a>
+                        <br></br>
+                        <h4>Only Lysins table</h4>
+                        <a href="/admin_page/reset_lysins_table" class="btn btn-default">Reset</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
